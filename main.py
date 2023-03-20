@@ -150,10 +150,11 @@ test_df.to_csv('results.csv')
 #convertir a json con el key como el indicd del df y el value como el label en int
 results = test_df['label'].to_dict()
 results = {str(k): int(v) for k, v in results.items()}
+final_dict = {"target": results}
+
+#guardar el final_dict en un json
 with open('predictions.json', 'w') as f:
-    json.dump(results, f)
-
-
+    json.dump(final_dict, f)
     
 
 
